@@ -32,6 +32,7 @@ public class UsuarioService {
             if (existe) {
                 throw new ConflictException("Email já cadastrado" + email);
             }
+
         } catch (ConflictException e) {
             throw new ConflictException("Email já cadastrado" + e.getCause());
         }
@@ -46,6 +47,7 @@ public class UsuarioService {
         return usuarioRepository.findByEmail(email).orElseThrow(
                 () -> new ResourceNotFoundException("Email não encontrado" + email));
     }
+
     public void deletaUsuarioPorEmail(String email){
         usuarioRepository.deleteByEmail(email);
     }
