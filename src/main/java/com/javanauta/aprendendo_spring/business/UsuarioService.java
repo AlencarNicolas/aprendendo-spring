@@ -32,6 +32,7 @@ public class UsuarioService {
             if (existe) {
                 throw new ConflictException("Email já cadastrado" + email);
             }
+
         } catch (ConflictException e) {
             throw new ConflictException("Email já cadastrado" + e.getCause());
         }
